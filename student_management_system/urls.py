@@ -24,6 +24,7 @@ from student_management_app.EditResultVIewClass import EditResultViewClass
 from student_management_system import settings
 
 urlpatterns = [
+    # url path for admin
     path('demo',views.showDemoPage),
     path('signup_admin',views.signup_admin,name="signup_admin"),
     path('signup_student',views.signup_student,name="signup_student"),
@@ -82,7 +83,7 @@ urlpatterns = [
     path('send_student_notification', HodViews.send_student_notification,name="send_student_notification"),
     path('send_staff_notification', HodViews.send_staff_notification,name="send_staff_notification"),
 
-                  #     Staff URL Path
+    # Staff URL Path
     path('staff_home', StaffViews.staff_home, name="staff_home"),
     path('staff_take_attendance', StaffViews.staff_take_attendance, name="staff_take_attendance"),
     path('staff_update_attendance', StaffViews.staff_update_attendance, name="staff_update_attendance"),
@@ -106,7 +107,7 @@ urlpatterns = [
     path('start_live_classroom',StaffViews.start_live_classroom, name="start_live_classroom"),
     path('start_live_classroom_process',StaffViews.start_live_classroom_process, name="start_live_classroom_process"),
 
-
+    #student url path
     path('student_home', StudentViews.student_home, name="student_home"),
     path('student_view_attendance', StudentViews.student_view_attendance, name="student_view_attendance"),
     path('student_view_attendance_post', StudentViews.student_view_attendance_post, name="student_view_attendance_post"),
