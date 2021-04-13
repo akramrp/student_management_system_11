@@ -10,10 +10,7 @@ student_management_system_in_django
 
 <a href="http://studentmanagementsystem22.herokuapp.com/">Live Project Link</a>
 <h4>Login</h4>
-<pre>
-admin@gmail.com
-admin
-</pre>
+<pre>admin@gmail.com, admin </pre>
 
 <h2> How to Deploy on Heroku </h2> 
 Tutorial Link : <a href="https://youtu.be/n4ly0_S3uGo">https://youtu.be/n4ly0_S3uGo</a>
@@ -40,31 +37,30 @@ Tutorial Link : <a href="https://youtu.be/n4ly0_S3uGo">https://youtu.be/n4ly0_S3
 </table>
 <hr>
 <h2>Installation Steps : </h2>
-
 <p>Project Dependency :</p>
 <pre>
-pip install requests
-pip install Django
-pip install mysql-client
+      pip install requests
+      pip install Django
+      pip install mysql-client
 </pre>
 <hr>
 <ul>
 <ol>First Create MySql Database Tutorial : <a href="https://youtu.be/cEazlDKu86E">https://youtu.be/cEazlDKu86E</a> </ol>
 <ol>Change Database Setting in settings.py </ol>
 <ol>
-Run Migration Command 
+      Run Migration Command 
 <pre>
-python manage.py makemigrations
-python manage.py migrate
+      python manage.py makemigrations
+      python manage.py migrate
 </pre>
- <ul>     
+<ul>     
 <li>In login_page.html Replace <pre>CAPTCHA_CLIENT_KEY</pre> with Captcha Client Side Key</li>
 <li>In views.py Replace <pre>CAPTCHA_SERVER_KEY</pre> with Captcha SERVER Side Key</li>
 <li>For Captcha Key Visit <a href="https://www.google.com/recaptcha/intro/v3.html">https://www.google.com/recaptcha/intro/v3.html</a></li>
 </ul>
 </ol>
 <ol>
-Run Project python runserver
+      Run Project python runserver
 </ol>
 </ul>
 <hr>
@@ -194,3 +190,180 @@ Run Project python runserver
 <h1>Extending Project Parts</h1>
 <h2>Add Student Results From Staff Panel</h2>
 <img src="https://raw.githubusercontent.com/hackstarsj/student_management_system_part_11/master/screenshots/add_result2.PNG"  alt="Add Results">
+
+
+===========================================================================================================================
+=================================== all configration of project ===========================================================
+===========================================================================================================================
+
+https://realpython.com/django-setup/
+
+----------------------------- vs basic
+vs extensions:
+    1. material theme
+    2. material icons theme
+    3. Prettier -> format on save(ON)
+    4. bracket pair colorizer or rainbow bracket
+    5. rainbow csv
+    6. auto rename tag
+    7. REST client
+    8. css peek
+    9. html css support
+    10. live sess compiler
+    11. live server
+    12. emmet (for auto all basic html structure)
+vs code formetText ---> shift+alt+f
+
+
+
+----------------------------- full form
+PEP 8 --> Python Enhencement Proposal
+GIL   --> Global Interpreter Lock
+DRY   --> do not repeat yourself
+wsgi  --> web server gateway interface
+csrf  --> cross site request forgery
+CGI   --> Common Gateway Interface
+ORM   --> Object-relational mapping
+URI   --> Uniform Resource Identifier
+
+
+
+----------------------------- django libraries
+python -m pip install --upgrade pip       : pip upgrade cmd 
+pip install -U setuptools                 : for setuptools
+pip install reportlab                     : To generate PDF
+
+
+
+----------------------------- how to setup django on window
+pip -h | pip help()
+pip install virtualenv
+virtualenv myenv
+open location on cmd
+      .\myenv\Scripts\activate | myenv/Scripts/activate
+      set-executionpolicy remotesigned    # for error during activetion where python
+      rmdir myenv       # for delete myenv
+      deactivate        # deactivate myenv
+      workon            # List available virtual environments
+pip list
+pip install django
+      python -m django --version
+      django.get_version()
+pip install mysqlclient
+pip install django-crispy-forms
+pip install mysql-connector-python
+pip install -r requirements.txt
+pip freeze > requirements.txt
+django-admin
+django-admin startproject imc
+python manage.py startapp shop
+python manage.py makemigrations shop
+python manage.py migrate shop
+python manage.py createsuperuser
+python manager.py changepassword admin (for forgot password of admin)
+python manage.py runserver
+
+
+
+----------------------------- django code start
+There are other output options though for the <label>/<input> pairs:
+    {{ form.as_table }} will render them as table cells wrapped in <tr> tags
+    {{ form.as_p }} will render them wrapped in <p> tags
+    {{ form.as_ul }} will render them wrapped in <li> tags
+
+for install mysqlclient::
+    download .whl file from:
+        https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
+    install .whl file
+        pip install mysqlclient-1.4.6-cp38-cp38-win32.whl
+    python manage.py migrate
+    python manage.py runserver
+
+django database migrations
+    makemigrations : It is used to create a migration file that contains code for the tabled schema of a model.
+    migrate :        It creates table according to the schema defined in the migration file.
+    sqlmigrate :     It is used to show a raw SQL query of the applied migration.
+    showmigrations : It lists out all the migrations and their status.
+
+
+
+----------------------------- django model class example
+class boqmodel(models.Model):
+    project_name    = models.ForeignKey(projectsmodel, null=True, blank=True, on_delete=models.SET_NULL)
+    code            = models.IntegerField()
+    building        = models.ForeignKey(building, on_delete=models.SET_NULL, null=True)
+    level           = models.ForeignKey(level, on_delete=models.SET_NULL, null=True)
+    activity        = models.ForeignKey(activity, on_delete=models.SET_NULL, null=True)
+    subactivity     = models.ForeignKey(sub_activity, on_delete=models.SET_NULL, null=True)
+    duration        = models.IntegerField()
+    linkactivity    = models.CharField(max_length=300, null=True, blank=True)
+    linktype        = models.CharField(choices=choicestype, max_length=300, null=True, blank=True)
+    linkduration    = models.IntegerField(default=0)
+    plannedstart    = models.DateField(null=True, blank=True)
+    plannedfinish   = models.DateField(null=True, blank=True)
+    actualstart     = models.DateField(null=True, blank=True)
+    actualfinish    = models.DateField(null=True, blank=True)
+    date_created    = models.DateTimeField(auto_now_add=True, null=True)
+
+
+----------------------------- py shell example
+cd D:/py/project/imc
+python manage.py shell
+      from django.utils import timezone
+      from shop.models import Product
+      Product.objects.all()
+      np=Product(name='redtap t-shirt zp',category='clouths',subcategory='men wear',price=670,description='new collection t-shirt foe boys',added_date=timezone.now())
+      np.save()
+      Product.objects.all()
+      np.name
+      nObj=Product.objects.get(subcategory='mobile')
+      nObj.values()
+      nObj.name
+      nObj.category
+      Product.objects.values('category')
+
+
+
+----------------------------- field use in django project
+Fields on User Objects:
+id              return id of current login user (user.id or request.user.id)
+Field	        Description
+username	    Required; 30 characters or fewer. Alphanumeric characters only (letters, digits, and underscores).
+first_name	    Optional; 30 characters or fewer.
+last_name	    Optional; 30 characters or fewer.
+email	        Optional. E-mail address.
+password	    Required. A hash of, and metadata about, the password (Django doesn’t store the raw password).
+is_staff	    Boolean. Designates whether this user can access the admin site.
+is_active	    Boolean. Designates whether this account can be used to log in. Set this flag to False instead of deleting accounts.
+is_superuser	Boolean. Designates that this user has all permissions without explicitly assigning them.
+last_login	    A datetime of the user’s last login. This is set to the current date/time by default.
+date_joined	    A datetime designating when the account was created.This is set to the current date/time by default when the account is created.
+
+
+Method	                Description
+is_authenticated()	    Always returns True for “real” User objects. This is a way to tell if the user has been authenticated.
+                            This does not imply any permissions, and it doesn’t check if the user is active.
+                            It only indicates that the user has sucessfully authenticated.
+is_anonymous()	        Returns True only for AnonymousUser objects (and False for “real” User objects).
+                            Generally, you should prefer using is_authenticated()      to this method.
+get_full_name()	        Returns the first_name plus the last_name, with a space in between.
+set_password(passwd)	    Sets the user’s password to the given raw string, taking care of the password hashing.
+                            This doesn’t actually save the User object.
+check_password(passwd)	Returns True if the given raw string is the correct password for the user.
+                            This takes care of the password hashing in making the comparison.
+get_group_permissions()	Returns a list of permission strings that the user has through the groups he or she belongs to.
+get_all_permissions()	Returns a list of permission strings that the user has, both through group and user permissions.
+has_perm(perm)	        Returns True if the user has the specified permission, where perm is in the format "package.codename".
+                            If the user is inactive, this method will always return False.
+has_perms(perm_list)	Returns True if the user has all of the specified permissions.
+                            If the user is inactive, this method will always return False.
+has_module_perms(app_label)	Returns True if the user has any permissions in the given app_label.
+                                If the user is inactive, this method will always return False.
+get_and_delete_messages()	Returns a list of Message objects in the user’s queue and deletes the messages from the queue.
+email_user(subj, msg)	    Sends an email to the user. This email is sent from the DEFAULT_FROM_EMAIL setting.
+                                You can also pass a third argument, from_email, to override the From address on the email.
+
+
+
+----------------------------- extra code
+admin, passwor00##
