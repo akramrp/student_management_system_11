@@ -229,9 +229,11 @@ URI   --> Uniform Resource Identifier
 
 
 ----------------------------- django libraries
-python -m pip install --upgrade pip       : pip upgrade cmd 
-pip install -U setuptools                 : for setuptools
-pip install reportlab                     : To generate PDF
+python manage.py inspectdb                      : for show all models
+python manage.py dumpdata --indent=4 <appname>  : for show superuser details 
+python -m pip install --upgrade pip             : pip upgrade cmd 
+pip install -U setuptools                       : for setuptools
+pip install reportlab                           : To generate PDF
 
 
 
