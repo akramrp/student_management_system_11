@@ -368,4 +368,4 @@ email_user(subj, msg)	    Sends an email to the user. This email is sent from th
 
 
 ----------------------------- extra code
-admin, passwor00##
+admin, admin@gmail.com, passwor00##
