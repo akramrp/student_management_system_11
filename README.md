@@ -242,7 +242,7 @@ pip -h | pip help()
 pip install virtualenv
 virtualenv myenv
 open location on cmd
-      .\myenv\Scripts\activate | myenv/Scripts/activate
+      .\myenv\scripts\activate | myenv\Scripts\activate | myenv/Scripts/activate
       set-executionpolicy remotesigned    # for error during activetion where python
       rmdir myenv       # for delete myenv
       deactivate        # deactivate myenv
